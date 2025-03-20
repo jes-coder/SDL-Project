@@ -16,7 +16,75 @@ session_start();
             background-color: #000; /* Black background */
             color: #fff; /* White text */
         }
-        /* Header CSS (same as above) */
+
+        /* Header Styling */
+        header {
+            background-color: #8A2BE2; /* Violet background */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: 20px;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            padding: 5px;
+            width: 100%;
+            max-width: 300px;
+            background-color: #444;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+        .login-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .login-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #6A1B9A;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+        }
+        .login-dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .login-dropdown-content a:hover {
+            background-color: #7B1FA2;
+        }
+        .login-dropdown:hover .login-dropdown-content {
+            display: block;
+        }
+
+        /* Sign-up Form Styling */
         .signup-form-container {
             display: flex;
             justify-content: center;
@@ -28,7 +96,7 @@ session_start();
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            width: 300px;
+            width: 400px;
             text-align: center;
         }
         .signup-form h2 {
@@ -39,7 +107,7 @@ session_start();
             margin-bottom: 15px;
         }
         .input-container input {
-            width: 100%;
+            width: 90%;
             padding: 10px 10px 10px 40px; /* Add padding for icons */
             border: 1px solid #555;
             border-radius: 4px;
@@ -77,7 +145,11 @@ session_start();
             margin-bottom: 20px;
         }
         .form-logo img {
-            height: 80px; /* Adjust based on your logo size */
+            height: 90px; /* Adjust based on your logo size */
+            width: 90px; /* Ensure a circular shape */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
     </style>
     <!-- Font Awesome for icons -->
@@ -85,7 +157,33 @@ session_start();
 </head>
 <body>
     <!-- Header -->
-    <?php include 'header.php'; ?>
+    <header>
+        <!-- Logo -->
+        <a href="index.php">
+            <img src="images/logo.jpg" alt="Logo" class="logo">
+        </a>
+
+        <!-- Navigation Links -->
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="premade-designs.php">Pre-made Designs</a>
+            <a href="commissioned-work.php">Commissioned Work</a>
+            <a href="showcasing.php">Showcasing</a>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search for designs...">
+        </div>
+
+        <!-- Log-in Dropdown -->
+        <div class="login-dropdown">
+            <a href="login.php">Log-in</a>
+            <div class="login-dropdown-content">
+                <a href="signup.php">Create an account</a>
+            </div>
+        </div>
+    </header>
 
     <!-- Sign-up Form -->
     <div class="signup-form-container">

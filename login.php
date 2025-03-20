@@ -100,7 +100,7 @@ session_start();
             margin-bottom: 15px;
         }
         .input-container input {
-            width: 100%;
+            width: 95%;
             padding: 10px 10px 10px 15px; /* Add padding for icons */
             border: 1px solid #555;
             border-radius: 4px;
@@ -109,7 +109,7 @@ session_start();
         }
         .input-container i {
             position: absolute;
-            left: 10px;
+            left: -1px;
             top: 50%;
             transform: translateY(-50%);
             color: #8A2BE2; /* Violet icon color */
@@ -164,6 +164,19 @@ session_start();
         .continue-with button:hover {
             background-color: #f0f0f0; /* Light gray on hover */
         }
+        header .logo {
+            height: 60px; /* Adjust based on your logo size */
+            width: 60px; /* Make width equal to height for a perfect circle */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area properly */
+        }   
+        .form-logo img {
+            height: 90px; /* Adjust based on your logo size */
+            width: 90px; /* Ensure a circular shape */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -205,7 +218,8 @@ session_start();
             <div class="form-logo">
                 <img src="images/logo.jpg" alt="Login Logo"> <!-- Replace with your login logo -->
             </div>
-            <h2>Metro District Designs</h2>
+            <h2><i>Metro District Designs</i></h2>
+            <h2><p>Log-in</p></h2>
             <form action="login-process.php" method="post">
                 <!-- Username Field -->
                 <div class="input-container">

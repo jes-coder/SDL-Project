@@ -92,6 +92,12 @@ session_start();
             object-fit: cover;
             border: 1px solid #ccc;
         }
+        header .logo {
+            height: 60px; /* Adjust based on your logo size */
+            width: 60px; /* Make width equal to height for a perfect circle */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area properly */
+        }  
     </style>
 </head>
 <body>

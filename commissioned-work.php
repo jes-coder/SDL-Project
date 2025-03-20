@@ -90,6 +90,12 @@ session_start();
         .upload-form input[type="file"] {
             margin-bottom: 10px;
         }
+        header .logo {
+            height: 60px; /* Adjust based on your logo size */
+            width: 60px; /* Make width equal to height for a perfect circle */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area properly */
+        }  
     </style>
 </head>
 <body>
