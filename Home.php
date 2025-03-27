@@ -9,42 +9,37 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
-        /* Basic Styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: black; /* Keep black but limit content width */
-            color: white;
+            background-color: #EAE7DC;
+            color: black;
         }
 
-        /* Container for content */
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-            background-color: #111; /* Dark gray for contrast */
+            background-color: #D8C3A5;
             border-radius: 10px;
             margin-top: 20px;
         }
 
-        /* Header Styling */
         header {
-            background-color: #8A2BE2; /* Violet */
+            background-color: #4E4E50;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Logo and Navigation Container */
         .header-left {
             display: flex;
             align-items: center;
-            gap: 20px; /* Space between logo and navigation */
+            gap: 20px;
         }
 
-        /* Logo */
         header .logo {
             height: 60px;
             width: 60px;
@@ -52,7 +47,6 @@ session_start();
             object-fit: cover;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             align-items: center;
@@ -70,52 +64,18 @@ session_start();
             text-decoration: underline;
         }
 
-        /* Search Bar */
         .search-bar {
-            margin-left: 20px; /* Align beside "Showcasing" */
+            display: flex;
+            align-items: center;
         }
 
         .search-bar input {
             padding: 5px;
-            width: 250px;
+            font-size: 16px;
+            border: none;
             border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #444;
-            color: white;
         }
 
-        /* Dropdown Menu */
-        .login-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .login-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #6A1B9A;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            right: 0;
-        }
-
-        .login-dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .login-dropdown-content a:hover {
-            background-color: #7B1FA2;
-        }
-
-        .login-dropdown:hover .login-dropdown-content {
-            display: block;
-        }
-
-        /* Slider */
         .slider {
             width: 100%;
             height: 400px;
@@ -142,62 +102,180 @@ session_start();
             to { opacity: 1; }
         }
 
+        .product-section {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            transition: opacity 0.5s ease;
+        }
+
+        .card .hover-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .card:hover .hover-img {
+            opacity: 1;
+        }
+
+        .label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .product-description {
+            padding: 10px;
+            background-color: #f1f1f1;
+            color: black;
+            font-size: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .card {
+            width: 200px;
+            height: 250px;
+            margin: 1rem auto;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+
+        .card-front {
+            background: white;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card-back {
+            background: #8b5cf6;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+
+        footer {
+            background-color: #4E4E50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="header-left">
-            <!-- Logo -->
             <a href="index.php">
                 <img src="images/logo.jpg" alt="Logo" class="logo">
             </a>
-
-            <!-- Navigation Links -->
             <nav>
                 <a href="index.php">Home</a>
                 <a href="premade-designs.php">Pre-made Designs</a>
                 <a href="commissioned-work.php">Commissioned Work</a>
-                <a href="showcasing.php">Showcasing</a>
-
-                <!-- Search Bar beside "Showcasing" -->
                 <div class="search-bar">
-                    <input type="text" placeholder="Search for designs...">
+                    <input type="text" placeholder="Search...">
                 </div>
             </nav>
         </div>
-
-        <!-- Login Dropdown -->
-        <div class="login-dropdown">
-            <a href="login.php">Log-in</a>
-            <div class="login-dropdown-content">
-                <a href="signup.php">Create an account</a>
-            </div>
+        <div class="header-right">
+            <a href="login.php" style="color: white; text-decoration: none; font-size: 18px; font-weight: bold;">Log-in</a>
         </div>
     </header>
 
-    <!-- Content Container -->
     <div class="container">
-        
-        <!-- Slider -->
         <div class="slider">
-            <img src="images/background.jpg" alt="Product 1" class="active">
-            <img src="images/product1.jpg" alt="Product 2">
-            <img src="images/product2.jpg" alt="Product 3">
-            <img src="images/product3.jpg" alt="Product 3">
+            <img src="images/slider1.jpg" alt="Product 1" class="active">
+            <img src="images/slider2.jpg" alt="Product 2">
+            <img src="images/slider3.jpg" alt="Product 3">
         </div>
 
-        <!-- Main Content -->
-        <div class="content">
-            <h1>Welcome to <b><i>Metro District Designs</i></b></h1>
-            <p><i>"Explore unique designs, commission custom work, and showcase your creativity."</i></p>
+        <div class="product-section">
+            <?php 
+            for($i = 1; $i <= 10; $i++): ?>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="label"><i>New</i></span>
+                        <img src="images/product<?php echo $i; ?>_front.jpg" alt="Product <?php echo $i; ?>">
+                    </div>
+                    <div class="card-back">
+                        <img src="images/product<?php echo $i; ?>_back.jpg" alt="Product <?php echo $i; ?> Back">
+                    </div>
+                </div>
+            </div>
+            <?php endfor; ?>
         </div>
-
     </div>
 
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/MetroDistrictDesigns">Facebook</a>
+            <a href="https://www.instagram.com/metrodistrict_ig/">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2025 Metro District Designs. All Rights Reserved.</p>
+    </footer>
+
     <script>
-        // Image Slider Logic
         let images = document.querySelectorAll('.slider img');
         let current = 0;
 
@@ -207,7 +285,7 @@ session_start();
             images[current].classList.add('active');
         }
 
-        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        setInterval(nextSlide, 3000); 
     </script>
 
 </body>

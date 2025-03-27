@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,135 +9,180 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pre-made Designs</title>
     <style>
-        /* Basic styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
+            background-color: #EAE7DC;
+            color: black;
         }
-        /* Header Styling */
+
         header {
-            background-color: #8A2BE2; /* Violet background */
-            color: #fff;
+            background-color: #4E4E50;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        header .logo {
-            height: 50px; /* Adjust based on your logo size */
-        }
-        header nav {
+
+        .header-left {
             display: flex;
             align-items: center;
-            gap: 20px; /* Space between links */
-            margin-left: 20px; /* Move navigation links to the left */
+            gap: 20px;
         }
-        header nav a {
-            color: #fff;
+
+        header .logo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
             text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
         }
-        header nav a:hover {
+
+        nav a:hover {
             text-decoration: underline;
         }
+
         .search-bar {
-            flex-grow: 1;
-            margin: 0 20px;
+            display: flex;
+            align-items: center;
         }
+
         .search-bar input {
             padding: 5px;
-            width: 100%;
-            max-width: 300px;
-            background-color: #444; /* Dark input field */
-            color: #fff; /* White text */
-            border: 1px solid #555;
-            border-radius: 4px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
         }
-        .login-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .login-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #6A1B9A; /* Darker violet for dropdown */
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            right: 0; /* Align dropdown to the right */
-        }
-        .login-dropdown-content a {
-            color: #fff;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .login-dropdown-content a:hover {
-            background-color: #7B1FA2; /* Slightly lighter violet on hover */
-        }
-        .login-dropdown:hover .login-dropdown-content {
-            display: block;
-        }
-        /* Gallery Styling */
-        .gallery {
+
+        .product-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 20px;
+            justify-content: center;
             padding: 20px;
         }
-        .gallery img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border: 1px solid #ccc;
+
+        .card {
+            position: relative;
+            width: 220px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
         }
-        header .logo {
-            height: 60px; /* Adjust based on your logo size */
-            width: 60px; /* Make width equal to height for a perfect circle */
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area properly */
-        }  
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        .hot-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .card .description {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .card .price {
+            color: #8b0000;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        footer {
+            background-color: #4E4E50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
     <header>
-        <!-- Logo -->
-        <a href="index.php">
-            <img src="images/logo.jpg" alt="Logo" class="logo"> <!-- Replace with your logo -->
-        </a>
-
-        <!-- Navigation Links -->
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="premade-designs.php">Pre-made Designs</a>
-            <a href="commissioned-work.php">Commissioned Work</a>
-            <a href="showcasing.php">Showcasing</a>
-        </nav>
-
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search for designs...">
+        <div class="header-left">
+            <a href="index.php">
+                <img src="images/logo.jpg" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <a href="index.php">Home</a>
+                <a href="premade-designs.php">Pre-made Designs</a>
+                <a href="commissioned-work.php">Commissioned Work</a>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </nav>
         </div>
-
-        <!-- Log-in Dropdown -->
-        <div class="login-dropdown">
-            <a href="login.php">Log-in</a>
-            <div class="login-dropdown-content">
-                <a href="signup.php">Create an account</a>
-            </div>
+        <div class="header-right">
+            <a href="login.php" style="color: white; text-decoration: none; font-size: 18px; font-weight: bold;">Log-in</a>
         </div>
     </header>
 
-    <!-- Page Content -->
-    <h1 style="text-align: center;">Pre-made Designs</h1>
-    <div class="gallery">
-        <img src="images/product4.jpg" alt="Design 1">
-        <img src="images/product5.jpg" alt="Design 2">
-        <img src="images/product6.jpg" alt="Design 3">
-        <!-- Add more images as needed -->
+    <div class="product-section">
+        <?php 
+        $prices = [299, 199, 399, 249, 350, 220, 275, 320, 180, 410];
+        for($i = 1; $i <= 10; $i++): ?>
+        <div class="card">
+            <span class="hot-label"><i>Hot</i></span>
+            <img src="images/product<?php echo $i; ?>.jpg" alt="Product <?php echo $i; ?>">
+            <div class="description">Design <?php echo $i; ?> - Unique & Trendy</div>
+            <div class="price">₱<?php echo $prices[$i - 1]; ?></div>
+            <button class="btn">Add to Cart</button>
+        </div>
+        <?php endfor; ?>
     </div>
+    
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/MetroDistrictDesigns">Facebook</a>
+            <a href="https://www.instagram.com/metrodistrict_ig/">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2025 Metro District Designs. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
